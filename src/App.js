@@ -5,6 +5,7 @@ import Home from "./components/home/Home.jsx";
 import { BrowserRouter as Router } from "react-router-dom";
 import Skills from "./components/skills/Skills.jsx";
 import Services from "./components/services/Services.jsx";
+import Qualification from "./components/qualification/Qualification.jsx";
 function App() {
   return (
     <>
@@ -16,6 +17,7 @@ function App() {
           <About />
           <Skills />
           <Services />
+          <Qualification />
         </main>
       </Router>
     </>

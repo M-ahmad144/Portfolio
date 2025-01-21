@@ -11,23 +11,22 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css"; // import CSS for Toastify
 import Footer from "./components/footer/Footer.jsx";
 import ScrollUp from "./components/scrollup/Scrollup.jsx";
-
+import Portfolio from "./components/projects/Portfolio.jsx";
 function App() {
   return (
     <>
-      <Router>
-        <Header />
-        <main className="main">
-          <Home />
-          <About />
-          <Skills />
-          <Services />
-          <Qualification />
-          <Contact />
-        </main>
-        <Footer />
-        <ScrollUp />
-      </Router>
+      <Header />
+      <main className="main">
+        <Home />
+        <About />
+        <Skills />
+        <Services />
+        <Qualification />
+        <Portfolio />
+        <Contact />
+      </main>
+      <Footer />
+      <ScrollUp />
 
       {/* ToastContainer must be included once at the root of your app */}
       <ToastContainer

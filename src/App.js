@@ -6,11 +6,14 @@ import { BrowserRouter as Router } from "react-router-dom";
 import Skills from "./components/skills/Skills.jsx";
 import Services from "./components/services/Services.jsx";
 import Qualification from "./components/qualification/Qualification.jsx";
+import Contact from "./components/contact/Contact.jsx";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css"; // import CSS for Toastify
+
 function App() {
   return (
     <>
       <Router>
-        {" "}
         <Header />
         <main className="main">
           <Home />
@@ -18,8 +21,22 @@ function App() {
           <Skills />
           <Services />
           <Qualification />
+          <Contact />
         </main>
       </Router>
+
+      {/* ToastContainer must be included once at the root of your app */}
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </>
   );
 }

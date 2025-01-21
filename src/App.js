@@ -9,6 +9,7 @@ import Qualification from "./components/qualification/Qualification.jsx";
 import Contact from "./components/contact/Contact.jsx";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css"; // import CSS for Toastify
+import Footer from "./components/footer/Footer.jsx";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Services />
           <Qualification />
           <Contact />
+          <Footer />
         </main>
       </Router>
 

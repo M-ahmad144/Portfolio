@@ -1,13 +1,12 @@
-/* Card Container */
 .project-card {
   position: relative;
   width: 100%;
-  max-width: 100%;
-  height: 300px;
+  max-width: 400px; /* Increased max-width for larger cards */
+  height: auto; /* Allow height to grow based on content */
   border-radius: 20px;
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
   overflow: hidden;
-  background-color: #fff; /* Updated to white */
+  background-color: #fff;
   transition: all 0.3s ease-in-out;
   display: flex;
   flex-direction: column;
@@ -71,23 +70,30 @@
   margin-bottom: 10px;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
-
-/* Technologies */
+/* Technologies Section */
 .project-technologies {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 8px;
+  margin-top: 10px;
+  width: 100%; /* Ensure it takes up the full width of the card */
+  box-sizing: border-box; /* Prevent any overflow issues due to padding */
 }
 
+/* Technology Tags */
 .project-tech-tag {
   font-size: 0.9rem;
   background-color: rgba(100, 104, 104, 0.8);
   color: #fff;
-  padding: 6px 12px;
+  padding: 2px 7px;
   border-radius: 15px;
   transition: background-color 0.3s ease;
+  white-space: nowrap; /* Prevent tags from breaking into multiple lines */
+  max-width: 100%; /* Ensure each tag doesn't exceed the container width */
+  box-sizing: border-box; /* Include padding and border in width calculation */
 }
 
+/* On hover, change the background color of the tags */
 .project-tech-tag:hover {
   background-color: rgba(52, 152, 219, 1);
 }
@@ -162,22 +168,21 @@
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+
+/* Mobile (max-width: 480px) */
+@media (max-width: 480px) {
   .project-card {
-    max-width: 350px;
-    height: 500px;
+    max-width: 100%;
+    height: auto;
+    margin: 10px 0;
   }
 
   .project-img-container {
-    height: 150px;
-  }
-
-  .project-info {
-    padding: 10px;
+    height: 120px; /* Adjusted for mobile */
   }
 
   .project-title {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
   }
 
   .project-description {
@@ -191,6 +196,90 @@
   .project-link {
     font-size: 1.2rem;
   }
+}
+
+/* Tablets (481px–768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+  .project-card {
+    max-width: 90%;
+    height: 420px;
+    margin: 15px auto;
+  }
+
+  .project-img-container {
+    height: 180px; /* Adjusted for tablets */
+  }
+
+  .project-title {
+    font-size: 1.6rem;
+  }
+
+  .project-description {
+    font-size: 1rem;
+  }
+
+  .project-technologies {
+    gap: 10px;
+  }
+
+  .project-link {
+    font-size: 1.3rem;
+  }
+}
+
+/* Desktops (769px–1200px) */
+@media (min-width: 769px) and (max-width: 1200px) {
+  .project-card {
+    max-width: 500px; /* Increase max-width for larger cards */
+    height: 380px;
+  }
+
+  .project-img-container {
+    height: 180px; /* Adjusted height */
+  }
+
+  .project-title {
+    font-size: 1.8rem;
+  }
+
+  .project-description {
+    font-size: 1.1rem;
+  }
+}
+
+/* Widescreens (1201px and up) */
+@media (min-width: 1201px) {
+  .project-card {
+    max-width: 600px; /* Increase max-width for larger cards */
+    height: 350px;
+  }
+
+  .project-img-container {
+    height: 200px; /* Larger images for desktops */
+  }
+}
+
+/* Card Container (Individual project) */
+.project-item {
+  flex-basis: calc(33.333% - 30px); /* Three cards per row on large screens */
+  min-width: 280px;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+/* On very large screens, let cards have a bit more room */
+@media (min-width: 1201px) {
+  .project-item {
+    flex-basis: calc(25% - 30px); /* Four cards per row */
+  }
+}
+
+/* Projects container styles */
+.project-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
 }
 
 /* General section styles */
@@ -218,48 +307,55 @@
   color: #666; /* Updated for better contrast */
 }
 
-/* Projects Section */
+/* Project Filters Container */
 .project-filters {
   display: flex;
   justify-content: center;
   margin-bottom: 40px;
+  flex-wrap: wrap; /* Allow items to wrap on small screens */
+  gap: 10px; /* Add spacing between items */
 }
 
+/* Individual Filter Item */
 .project-filter-item {
   background: #fff; /* Updated to white */
   color: #333; /* Updated for better readability */
   padding: 12px 24px;
   border-radius: 25px;
-  margin: 0 10px;
+  margin: 0;
   cursor: pointer;
   transition: background 0.3s ease-in-out;
   border: 1px solid #ccc; /* Updated border for a clean look */
 }
 
+/* Hover and active state */
 .project-filter-item.active,
 .project-filter-item:hover {
   color: #fff;
   background-color: #7d7d7d;
 }
 
-/* Projects container styles */
-.project-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
+/* Mobile Responsiveness (max-width: 480px) */
+@media (max-width: 480px) {
+  .project-filters {
+    justify-content: center; /* Center the items on smaller screens */
+    gap: 5px; /* Reduce the gap between filter items */
+  }
+
+  .project-filter-item {
+    padding: 8px 16px; /* Adjust padding for smaller screens */
+    font-size: 0.9rem; /* Reduce font size for mobile */
+  }
 }
 
-/* Card Container (Individual project) */
-.project-item {
-  flex-basis: calc(33% - 30px); /* Three columns on larger screens */
-  min-width: 280px;
-  margin-bottom: 30px;
-  position: relative;
-}
+/* Tablets (481px–768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+  .project-filters {
+    justify-content: center; /* Center the items on tablets */
+  }
 
-@media (max-width: 768px) {
-  .project-item {
-    flex-basis: 100%; /* Full width on smaller screens */
+  .project-filter-item {
+    padding: 10px 20px; /* Adjust padding for tablets */
+    font-size: 1rem; /* Set font size for tablet */
   }
 }

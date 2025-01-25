@@ -3,13 +3,13 @@ import Project2 from "../../assets/images/netflix.png";
 import Project3 from "../../assets/images/crypto-1.jpg";
 import Project4 from "../../assets/images/tour1.jpg";
 import Project5 from "../../assets/images/lsp.png";
-import Project6 from "../../assets/Vegeta.png";
-import Project7 from "../../assets/Vegeta.png";
-import Project8 from "../../assets/Vegeta.png";
+import Project6 from "../../assets/images/news.png";
+import Project7 from "../../assets/images/todo.png";
+import Project8 from "../../assets/images/react.png";
 import Project9 from "../../assets/images/watherApp.jpg";
 import Project10 from "../../assets/images/slider-1.jpg";
 import Project11 from "../../assets/images/SET.png";
-import Project12 from "../../assets/Vegeta.png";
+import Project12 from "../../assets/images/DS.png";
 
 export const projectsData = [
   // MERN Projects (5)
@@ -193,7 +193,6 @@ export const projectsData = [
 ];
 
 export const projectsNav = [
-  { name: "All" },
   { name: "MERN" },
   { name: "React.js" },
   { name: "HTML CSS JS" },

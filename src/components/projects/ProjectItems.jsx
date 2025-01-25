@@ -1,39 +1,70 @@
 import React from "react";
-import { HiOutlineArrowSmRight } from "react-icons/hi";
+import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 
 const ProjectItems = ({ item }) => {
+  if (!item) {
+    console.error("ProjectItems: No item data provided");
+    return null;
+  }
+
   return (
-    <div className="project__card">
-      <div className="project__card-header">
-        <img className="project__logo" src={item.image} alt={item.title} />
-      </div>
-      <div className="project__card-body">
-        <h3 className="project__title">{item.title}</h3>
-        <p className="project__description">{item.description}</p>
-        <div className="project__tags">
-          {item.technologies.map((tech, index) => (
-            <span key={index} className="project__tag">
-              {tech}
-            </span>
-          ))}
+    <div className="project-card">
+      <div className="project-card-inner">
+        {/* Front Side */}
+        <div className="project-card-front">
+          <div className="project-img-container">
+            <div
+              className="project-img"
+              style={{
+                backgroundImage: `url(${item.image || ""})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
+            />
+          </div>
+          <div className="project-info">
+            <h3 className="project-title">
+              {item.title || "Untitled Project"}
+            </h3>
+            <div className="project-technologies">
+              {item.technologies?.map((tech, index) => (
+                <span key={index} className="project-tech-tag">
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </div>
         </div>
-        <div className="project__links">
-          <a
-            href={item.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="github-link"
-          >
-            <i className="fa-github fab"></i> GitHub
-          </a>
-          <a
-            href={item.demo}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="live-demo-link"
-          >
-            <HiOutlineArrowSmRight /> Live Demo
-          </a>
+
+        {/* Back Side (Links and Description) */}
+        <div className="project-card-back">
+          <p className="project-description">
+            {item.description || "No description available"}
+          </p>
+          <div className="project-links">
+            {item.demo && (
+              <a
+                href={item.demo}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="project-link"
+                aria-label="Live Demo"
+              >
+                <FaExternalLinkAlt className="project-icon" />
+              </a>
+            )}
+            {item.github && (
+              <a
+                href={item.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="project-link"
+                aria-label="GitHub Repository"
+              >
+                <FaGithub className="project-icon" />
+              </a>
+            )}
+          </div>
         </div>
       </div>
     </div>

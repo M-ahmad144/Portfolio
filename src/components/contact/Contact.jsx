@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import "./cantact.css";
 import { HiOutlineMail, HiOutlineArrowSmRight } from "react-icons/hi";
 import emailjs from "@emailjs/browser";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Contact = () => {

@@ -1,47 +1,51 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import { projectsData } from "./Data";
 import { projectsNav } from "./Data";
 import ProjectItems from "./ProjectItems";
 
 const Projects = () => {
-  const [item, setItem] = useState({ name: "MERN" });
-  const [projects, setProjects] = useState([]);
-  const [active, setActive] = useState(0);
+  const [category, setCategory] = useState("MERN"); // Change to just store category name
+  const [filtered, setFiltered] = useState([]);
 
   useEffect(() => {
-    if (item.name === "MERN") {
-      setProjects(projectsData);
+    // Filter projects whenever the category is changed
+    if (category === "MERN") {
+      setFiltered(projectsData);
     } else {
       const newProjects = projectsData.filter(
-        (project) => project.category === item.name
+        (project) => project.category === category
       );
-      setProjects(newProjects);
+      setFiltered(newProjects);
     }
-  }, [item]);
+  }, [category]);
 
-  const handleClick = (e, index) => {
-    setItem({ name: e.target.textContent });
-    setActive(index);
+  const handleCategoryChange = (categoryName) => {
+    setCategory(categoryName);
   };
 
   return (
-    <div>
-      <div className="project__filters">
-        {projectsNav.map((item, index) => (
-          <span
-            onClick={(e) => handleClick(e, index)}
-            className={`${
-              active === index ? "active-project" : ""
-            } project__item`}
+    <div className="">
+      {/* Filters */}
+      <div className="project-filters">
+        {projectsNav.map((navItem, index) => (
+          <button
             key={index}
+            onClick={() => handleCategoryChange(navItem.name)}
+            className={`project-filter-item ${
+              category === navItem.name ? "active" : ""
+            }`}
           >
-            {item.name}
-          </span>
+            {navItem.name}
+          </button>
         ))}
       </div>
-      <div className="grid container project__container">
-        {projects.map((project) => (
-          <ProjectItems key={project.id} item={project} />
+
+      {/* Projects container */}
+      <div className="project-container">
+        {filtered.map((item) => (
+          <div key={item.id} className="project-item">
+            <ProjectItems item={item} />
+          </div>
         ))}
       </div>
     </div>

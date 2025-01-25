@@ -3,7 +3,7 @@
   position: relative;
   width: 100%;
   max-width: 100%;
-  height: 400px;
+  height: 300px;
   border-radius: 20px;
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
   overflow: hidden;
@@ -27,7 +27,7 @@
   position: relative;
   width: 100%;
   height: 100%;
-  padding: 20px;
+  padding: 15px;
   background-color: #fff; /* Updated to white */
   display: flex;
   flex-direction: column;
@@ -39,8 +39,8 @@
 .project-img-container {
   position: relative;
   width: 100%;
-  height: 180px;
-  border-radius: 10px;
+  height: 160px;
+  border-radius: 8px;
   overflow: hidden;
   margin-bottom: 20px;
 }
@@ -111,12 +111,12 @@
 
 .project-link {
   font-size: 1.5rem;
-  color: #3498db;
+  color: #767879;
   transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .project-link:hover {
-  color: #1abc9c;
+  color: #5b5d5c;
   transform: scale(1.2);
 }
 
@@ -126,7 +126,7 @@
 }
 
 .project-icon:hover {
-  color: #1abc9c;
+  color: #727272;
 }
 
 /* Show description and links section on hover */
@@ -239,7 +239,7 @@
 .project-filter-item.active,
 .project-filter-item:hover {
   color: #fff;
-  background-color: #3498db;
+  background-color: #7d7d7d;
 }
 
 /* Projects container styles */

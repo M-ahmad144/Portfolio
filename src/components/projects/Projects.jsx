@@ -4,12 +4,12 @@ import { projectsNav } from "./Data";
 import ProjectItems from "./ProjectItems";
 
 const Projects = () => {
-  const [category, setCategory] = useState("MERN"); // Change to just store category name
+  const [category, setCategory] = useState("All"); // Change to just store category name
   const [filtered, setFiltered] = useState([]);
 
   useEffect(() => {
     // Filter projects whenever the category is changed
-    if (category === "MERN") {
+    if (category === "All") {
       setFiltered(projectsData);
     } else {
       const newProjects = projectsData.filter(

@@ -193,6 +193,7 @@ export const projectsData = [
 ];
 
 export const projectsNav = [
+  { name: "All" },
   { name: "MERN" },
   { name: "React.js" },
   { name: "HTML CSS JS" },

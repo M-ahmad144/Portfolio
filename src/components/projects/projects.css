@@ -1,8 +1,65 @@
+/* General Styles */
+.portfolio.section {
+  padding: 80px 0;
+  background-color: #fff;
+  color: #333;
+}
+
+.portfolio-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.section__title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.section__subtitle {
+  font-size: 1.2rem;
+  color: #666;
+}
+
+/* Project Filters */
+.project-filters {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.project-filter-item {
+  background: #fff;
+  color: #333;
+  padding: 12px 24px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+  border: 1px solid #ccc;
+}
+
+.project-filter-item.active,
+.project-filter-item:hover {
+  color: #fff;
+  background-color: #7d7d7d;
+}
+
+/* Project Container */
+.project-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+  padding: 0 20px;
+}
+
+/* Project Card */
 .project-card {
   position: relative;
   width: 100%;
-  max-width: 400px; /* Increased max-width for larger cards */
-  height: auto; /* Allow height to grow based on content */
+  min-height: 300px;
   border-radius: 20px;
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
   overflow: hidden;
@@ -10,15 +67,11 @@
   transition: all 0.3s ease-in-out;
   display: flex;
   flex-direction: column;
-  margin: 20px;
-  transform-style: preserve-3d;
-  transform: scale(1);
 }
 
-/* Hover effect for card */
 .project-card:hover {
-  transform: scale(1.05); /* Slight zoom effect on hover */
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25); /* Enhance shadow on hover */
+  transform: scale(1.05);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
 }
 
 /* Front Side */
@@ -26,31 +79,28 @@
   position: relative;
   width: 100%;
   height: 100%;
-  padding: 15px;
-  background-color: #fff; /* Updated to white */
+  padding: 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  overflow: hidden;
 }
 
 /* Image Section */
 .project-img-container {
-  position: relative;
-  width: 100%;
-  height: 160px;
+  aspect-ratio: 16/9;
+  height: auto;
   border-radius: 8px;
   overflow: hidden;
   margin-bottom: 20px;
+  /* center items */
+  justify-content: center;
 }
 
 .project-img {
   width: 100%;
   height: 100%;
-  background-size: cover;
-  background-position: center;
+  object-fit: cover;
   border-radius: 10px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
 }
 
 /* Info Section */
@@ -62,25 +112,23 @@
   flex-grow: 1;
 }
 
-/* Title */
 .project-title {
   font-size: 1.8rem;
-  color: #333; /* Updated to darker color for better contrast */
+  color: #333;
   font-weight: bold;
   margin-bottom: 10px;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
-/* Technologies Section */
+
 .project-technologies {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
   margin-top: 10px;
-  width: 100%; /* Ensure it takes up the full width of the card */
-  box-sizing: border-box; /* Prevent any overflow issues due to padding */
+  width: 100%;
+  overflow-x: auto;
+  padding-bottom: 5px;
 }
 
-/* Technology Tags */
 .project-tech-tag {
   font-size: 0.9rem;
   background-color: rgba(100, 104, 104, 0.8);
@@ -88,31 +136,25 @@
   padding: 2px 7px;
   border-radius: 15px;
   transition: background-color 0.3s ease;
-  white-space: nowrap; /* Prevent tags from breaking into multiple lines */
-  max-width: 100%; /* Ensure each tag doesn't exceed the container width */
-  box-sizing: border-box; /* Include padding and border in width calculation */
+  white-space: nowrap;
 }
 
-/* On hover, change the background color of the tags */
 .project-tech-tag:hover {
   background-color: rgba(52, 152, 219, 1);
 }
 
-/* Description & Links Section */
 .project-description {
   font-size: 1rem;
-  color: #666; /* Updated for better readability */
+  color: #666;
   line-height: 1.4;
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
+  max-height: 100px;
+  overflow-y: auto;
   margin-bottom: 15px;
 }
 
 .project-links {
   display: flex;
   gap: 15px;
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
 }
 
 .project-link {
@@ -126,21 +168,6 @@
   transform: scale(1.2);
 }
 
-.project-icon {
-  font-size: 1.5rem;
-  transition: color 0.3s ease;
-}
-
-.project-icon:hover {
-  color: #727272;
-}
-
-/* Show description and links section on hover */
-.project-card:hover .project-description,
-.project-card:hover .project-links {
-  opacity: 1;
-}
-
 /* Back Side */
 .project-card-back {
   position: absolute;
@@ -148,7 +175,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #fff; /* Updated to white */
+  background-color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -158,204 +185,44 @@
   flex-direction: column;
   text-align: center;
   padding: 20px;
-  /* Remove rotation */
-  transform: rotateY(0deg);
 }
 
-/* Show back-side on hover */
 .project-card:hover .project-card-back {
   opacity: 1;
 }
 
 /* Responsive Design */
-
-/* Mobile (max-width: 480px) */
 @media (max-width: 480px) {
-  .project-card {
-    max-width: 100%;
-    height: auto;
-    margin: 10px 0;
-  }
-
-  .project-img-container {
-    height: 120px; /* Adjusted for mobile */
-  }
-
-  .project-title {
-    font-size: 1.4rem;
-  }
-
   .project-description {
-    font-size: 0.9rem;
+    max-height: 80px;
+    font-size: 0.85rem;
   }
 
   .project-technologies {
-    gap: 5px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 
-  .project-link {
-    font-size: 1.2rem;
+  .project-technologies::-webkit-scrollbar {
+    display: none;
   }
 }
 
-/* Tablets (481px–768px) */
 @media (min-width: 481px) and (max-width: 768px) {
   .project-card {
     max-width: 90%;
-    height: 420px;
     margin: 15px auto;
   }
-
-  .project-img-container {
-    height: 180px; /* Adjusted for tablets */
-  }
-
-  .project-title {
-    font-size: 1.6rem;
-  }
-
-  .project-description {
-    font-size: 1rem;
-  }
-
-  .project-technologies {
-    gap: 10px;
-  }
-
-  .project-link {
-    font-size: 1.3rem;
-  }
 }
 
-/* Desktops (769px–1200px) */
 @media (min-width: 769px) and (max-width: 1200px) {
   .project-card {
-    max-width: 500px; /* Increase max-width for larger cards */
-    height: 380px;
-  }
-
-  .project-img-container {
-    height: 180px; /* Adjusted height */
-  }
-
-  .project-title {
-    font-size: 1.8rem;
-  }
-
-  .project-description {
-    font-size: 1.1rem;
+    max-width: 500px;
   }
 }
 
-/* Widescreens (1201px and up) */
 @media (min-width: 1201px) {
   .project-card {
-    max-width: 600px; /* Increase max-width for larger cards */
-    height: 350px;
-  }
-
-  .project-img-container {
-    height: 200px; /* Larger images for desktops */
-  }
-}
-
-/* Card Container (Individual project) */
-.project-item {
-  flex-basis: calc(33.333% - 30px); /* Three cards per row on large screens */
-  min-width: 280px;
-  margin-bottom: 30px;
-  position: relative;
-}
-
-/* On very large screens, let cards have a bit more room */
-@media (min-width: 1201px) {
-  .project-item {
-    flex-basis: calc(25% - 30px); /* Four cards per row */
-  }
-}
-
-/* Projects container styles */
-.project-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
-}
-
-/* General section styles */
-.portfolio.section {
-  padding: 80px 0;
-  background-color: #fff; /* Updated to white */
-  color: #333; /* Updated to match text color */
-}
-
-.portfolio-header {
-  text-align: center;
-  margin-bottom: 40px;
-}
-
-.section__title {
-  font-size: 2.5rem;
-  font-weight: bold;
-  color: #333; /* Updated to darker color */
-  margin-bottom: 10px;
-  text-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
-}
-
-.section__subtitle {
-  font-size: 1.2rem;
-  color: #666; /* Updated for better contrast */
-}
-
-/* Project Filters Container */
-.project-filters {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 40px;
-  flex-wrap: wrap; /* Allow items to wrap on small screens */
-  gap: 10px; /* Add spacing between items */
-}
-
-/* Individual Filter Item */
-.project-filter-item {
-  background: #fff; /* Updated to white */
-  color: #333; /* Updated for better readability */
-  padding: 12px 24px;
-  border-radius: 25px;
-  margin: 0;
-  cursor: pointer;
-  transition: background 0.3s ease-in-out;
-  border: 1px solid #ccc; /* Updated border for a clean look */
-}
-
-/* Hover and active state */
-.project-filter-item.active,
-.project-filter-item:hover {
-  color: #fff;
-  background-color: #7d7d7d;
-}
-
-/* Mobile Responsiveness (max-width: 480px) */
-@media (max-width: 480px) {
-  .project-filters {
-    justify-content: center; /* Center the items on smaller screens */
-    gap: 5px; /* Reduce the gap between filter items */
-  }
-
-  .project-filter-item {
-    padding: 8px 16px; /* Adjust padding for smaller screens */
-    font-size: 0.9rem; /* Reduce font size for mobile */
-  }
-}
-
-/* Tablets (481px–768px) */
-@media (min-width: 481px) and (max-width: 768px) {
-  .project-filters {
-    justify-content: center; /* Center the items on tablets */
-  }
-
-  .project-filter-item {
-    padding: 10px 20px; /* Adjust padding for tablets */
-    font-size: 1rem; /* Set font size for tablet */
+    max-width: 600px;
   }
 }
